@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>企业信息</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<link rel="stylesheet" href="../static/css/base.css">
+<link rel="stylesheet" href="../static/css/index.css">
+<link rel="stylesheet" href="../static/css/enterprise.css">
+</head>
+<body>
+<!--header start-->
+#parse("views/common/header.html")
+<!--header end-->
+<input type = "hidden" name = "phoneNum" id = "phoneNum">
+<!-- container start -->
+<div class="enterprise_wrap enterprise_infomation clearfix">
+    <div class="w1200 bg_grey clearfix">
+        <div class="sidebar">
+            <div class="sidebar_tit">
+                <h2>搜材狗</h2>
+            </div>
+            <ul class="sidebar_menu">
+                <li class="curr"><a href="">企业信息</a></li>
+                <li><a href="../project/toPublishProject1">发布项目</a></li>
+                <li><a href="../users/toOnging">我的项目</a></li>
+            </ul>
+        </div>
+        <div class="content epr_content">
+            <div class="title">
+                <h2>基本信息</h2>
+            </div>
+            <div class="epr_info_menu">
+                <dl class="epr_info_locker">
+                    <dt>
+                        <span class="tit">公司名称</span>
+                        <em class="txt" id = "company"></em>
+                    </dt>
+                </dl>
+                <dl class="epr_info_locker">
+                    <dt>
+                        <span class="tit">企业认证</span>
+                        <em class="txt">未认证/已认证</em>
+                        #if($!confirmStatus == 1)
+                        <a class="ilk_btn ilk_btn1"><font>审核中</font><i></i></a>
+                        #elseif($!confirmStatus == 2)
+                        <a class="ilk_btn ilk_btn1"><font>已认证</font><i></i></a>
+                        #elseif($!confirmStatus == 3)
+                        <a class="ilk_btn ilk_btn1"><font>认证失败</font><i></i></a>
+                        #else
+                        <a class="ilk_btn ilk_btn1" href="../users/toAuthCompany"><font>去认证</font><i></i></a>
+                        #end
+                    </dt>
+                </dl>
+                <dl class="epr_info_locker">
+                    <dt>
+                        <span class="tit">登录密码</span>
+                        <em class="txt">******</em>
+                        <a class="ilk_btn ilk_btn2" data-tick="2" data-state="1" data-txt="设置/修改"><font>设置/修改</font><i></i></a>
+                    </dt>
+                    <dd class="accordion_wrap2"></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- container end -->
+
+<!--footer start-->
+#parse("views/common/footer.html")
+<!--footer end-->
+<script type="text/javascript" src="../static/js/mbDialog.js"></script>
+<script type="text/javascript" src="../static/js/infomation.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

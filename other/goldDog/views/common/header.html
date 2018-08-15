@@ -1,0 +1,53 @@
+<div class="topNav">
+	<div class="w1200">
+		<div class="fl">
+			<div class="top-tel">
+				<i></i> <span>400-123-4567</span>
+			</div>
+			<a class="page-name" href="/"> 欢迎来到搜材狗！ </a>
+		</div>
+		<div class="fr">
+			<ul class="login-menu" >
+				<li id = "login-status"><a class="login" href="../users/toLogin">登录</a> <a href="../users/toRegister?userType=1">免费注册</a></li>
+				<li><a href="../users/toInfomation">账户中心</a></li>
+				<li><a href="../users/toHelper">帮助中心</a></li>
+			</ul>
+		</div>
+	</div>
+	<input type ="hidden" id = "companyName" name = "companyName">
+	<input type ="hidden" id = "phoneNumber" name = "phoneNumber">
+</div>
+<div class="header">
+	<div class="w1200">
+		<div class="fl">
+			<div class="login-img">
+				<img src="" alt="搜材购">
+			</div>
+		</div>
+		<div class="fr">
+			<ul class="menu">
+				<li #if($!type ==0) class ="active" #end><a href="../index/indexPage?type=0">首页 <i></i>
+				</a></li>
+				<li #if($!type ==1) class ="active" #end><a href="../project/toProjectList?type=1">项目列表 <i></i>
+				</a></li>
+				<li #if($!type ==2) class ="active" #end><a href="../material/toMaterialList?type=2">物资列表 <i></i>
+				</a></li>
+			</ul>
+		</div>	
+	</div>
+</div>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var users = getUserCookie("zcm_users");
+		if (users !="null") {
+			var usersJson = JSON.parse(users);
+			var loginOut = '<a class="login" href="../users/loginOut">【退出】</a>';
+			$("#login-status").html("您好! " +usersJson.contactsName +"&nbsp;&nbsp;&nbsp;"+loginOut);
+		    $("#companyName").val(usersJson.companyName);
+		    $("#phoneNumber").val(usersJson.phoneNumber);
+		}
+	});
+	
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>竞标成功</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="../static/css/base.css">
+<link rel="stylesheet" href="../static/css/index.css">
+<link rel="stylesheet" href="../static/css/projectlist.css">
+</head>
+
+<body>
+	<!--header start-->
+	#parse("views/common/header.html")
+	<!--header end-->
+	<div class="main project-bidding">
+		<div class="w1200">
+			<div class=" confirm-bidding success-bid">
+				<div class="goods">
+					<div class="top-title">
+						<div class="bid-name fl">$!projectMaterialRes.twoClassifyName</div>
+						<div class="fr">
+							<div class="bid-total">
+								<span>竞标总价：</span> <em class="price">￥$!projectMaterialRes.twoClassifyName</em>
+							</div>
+							<div class="payment">
+								<span>首付款：</span> <em class="intro">10% 首付款（手续费1923.3元）</em>
+							</div>
+						</div>
+					</div>
+					<div class="content">
+						<img src="../static/img/success-bid.jpg" alt="">
+						<p class="alert">恭喜您！竞标申请成功</p>
+						<div class="notes">
+							<p class="warm">温馨提示：</p>
+							<p>1、竞标申请成功后，可在“账户中心-参与的竞标”中查看。</p>
+							<p>2、在竞标结束之前，您可对现有的竞标总价随时进行修改；竞标结束之后，将以您最后一次修改的竞标总价为最终价格参与竞标。</p>
+							<p>3、竞标结束之后，若您中标，将以电话和手机短信形式通知，请保持手机畅通。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer start-->
+	#parse("views/common/footer.html")
+	<!--footer end-->
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>企业信息</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<link rel="stylesheet" href="../static/css/base.css">
+<link rel="stylesheet" href="../static/css/index.css">
+<link rel="stylesheet" href="../static/css/enterprise.css">
+</head>
+<body>
+<!--header start-->
+#parse("views/common/header.html")
+<!--header end-->
+
+<!-- container start -->
+<div class="enterprise_wrap enterprise_infomation">
+    <div class="w1200 bg_grey clearfix">
+        <div class="sidebar">
+            <div class="sidebar_tit">
+                <h2>搜材狗</h2>
+            </div>
+            <ul class="sidebar_menu">
+                 <li><a href="../users/toInfomation">企业信息</a></li>
+                <li class="curr"><a href="">发布项目</a></li>
+                <li><a href="../users/toOnging">我的项目</a></li>
+            </ul>
+        </div>
+        <div class="content pub_pro_content">
+            <div class="flow flow_3">
+                <div class="flow_ico"></div>
+                <div class="flow_txt">
+                    <span class="txt_1">项目介绍</span>
+                    <span class="txt_2">物资描述</span>
+                    <span class="txt_3">发布申请完成</span>
+                </div>
+            </div>
+            <div class="res_comm res_succeed res_pub_pro">
+                <div class="res_icon icon_succeed"></div>
+                <p>恭喜您！发布申请成功</p>
+                <em>请等待1-3个工作日的审核时间</em>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- container end -->
+
+<!--footer start-->
+#parse("views/common/footer.html")
+<!--footer end-->
+</body>
+</html>

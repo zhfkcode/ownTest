@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>项目列表</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/helper.css">
+</head>
+
+<body>
+    <!--header start-->
+    #parse("views/common/header.html")
+    <div class="main helper ">
+        <div class="w1200 clearfix">
+            <div class="fl menu-list">
+                <ul>
+                    <li class="log cur">
+                        注册登录
+                        <i></i>
+                    </li>
+                    <li>
+                        关于供应商
+                        <i></i>
+                    </li>
+                    <li>
+                        关于采购商
+                        <i></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="fl question">
+                <div class="wrap cur">
+                    <div class="item">
+                        <p class="que">Q：注册的手机号可以更换吗？</p>
+                        <p class="anw">A：注册的手机号及企业名称，一旦注册，不可更改。</p>
+                    </div>
+                    <div class="item">
+                        <p class="que">Q：可以同时成功采购商和供应商吗？</p>
+                        <p class="anw">A：不可以。由于采购商和供应商的业务不同，注册成为采购商后，该手机号不能再注册供应商。</p>
+                    </div>
+                    <div class="item">
+                        <p class="que">Q：一个账号能否在两台电脑上同时登录？</p>
+                        <p class="anw">A：不能。如果用已登录的账号在另一台电脑上登录，第一个登录的用户将被强行退出。</p>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="item">
+                        <p class="que">2Q：注册的手机号可以更换吗？</p>
+                        <p class="anw">A：注册的手机号及企业名称，一旦注册，不可更改。</p>
+                    </div>
+                    <div class="item">
+                        <p class="que">Q：可以同时成功采购商和供应商吗？</p>
+                        <p class="anw">A：不可以。由于采购商和供应商的业务不同，注册成为采购商后，该手机号不能再注册供应商。</p>
+                    </div>
+                    <div class="item">
+                        <p class="que">Q：一个账号能否在两台电脑上同时登录？</p>
+                        <p class="anw">A：不能。如果用已登录的账号在另一台电脑上登录，第一个登录的用户将被强行退出。</p>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="item">
+                        <p class="que">3Q：注册的手机号可以更换吗？</p>
+                        <p class="anw">A：注册的手机号及企业名称，一旦注册，不可更改。</p>
+                    </div>
+                    <div class="item">
+                        <p class="que">Q：可以同时成功采购商和供应商吗？</p>
+                        <p class="anw">A：不可以。由于采购商和供应商的业务不同，注册成为采购商后，该手机号不能再注册供应商。</p>
+                    </div>
+                    <div class="item">
+                        <p class="que">Q：一个账号能否在两台电脑上同时登录？</p>
+                        <p class="anw">A：不能。如果用已登录的账号在另一台电脑上登录，第一个登录的用户将被强行退出。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer start-->
+    #parse("views/common/footer.html")
+    <!--footer end-->
+    <script>
+        $('.menu-list li').click(function () {
+            var index = $(this).index();
+            $(this).addClass('cur').siblings().removeClass('cur')
+            $(".helper .question .wrap").eq(index).addClass('cur').siblings().removeClass('cur')
+        })
+    </script>
+</body>
+
+</html>

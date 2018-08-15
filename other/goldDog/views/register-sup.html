@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>供应商注册</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="../static/css/base.css">
+<link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+	<!--header start-->
+	#parse("views/common/header.html")
+	<!--header end-->
+	<div class="register_bg">
+		<div class="register w1200">
+			<div class="lg_oper_box clearfix fr" id="pwdBox">
+				<div class="title">
+					<a href="../users/toRegister?userType=1">企业注册</a><i></i><a class="active">供应商注册</a>
+				</div>
+				<form action="/register" id="register-form" method="post">
+					<ul class="register-form">
+						<li><input type="text" class="input-text ipt_border"
+							placeholder="请输入手机号码" name="phone"> <label
+							id="userName-error" class="error"></label></li>
+						<li class="clearfix"><input type="text"
+							class="input-text input-text1 ipt_border fl" placeholder="请输入验证码"
+							name="author"> <a href="javascript:void(0);"
+							class="btn js-get-code btn_able fr">获取验证码</a> <label
+							id="verification-error" class="error"></label></li>
+						<li><input type="password" class="input-text ipt_border"
+							placeholder="请设置登录密码" id="pwd" name="pwd"> <label
+							id="pwd-error" class="error"></label></li>
+						<li><input type="password" class="input-text ipt_border"
+							placeholder="请在此输入登录密码" id="pwd2" name="pwd2"> <label
+							id="pwd2-error" class="error"></label></li>
+						<li><input type="text" class="input-text ipt_border"
+							placeholder="输入联系人真实姓名" id="name" name="name"> <label
+							id="name-error" class="error"></label></li>
+						<li><input type="text" class="input-text ipt_border"
+							placeholder="输入企业营业执照上的公司名称" id="company" name="company">
+							<label id="company-error" class="error"></label></li>
+						<li>
+							<p id="agreeCheck">
+								<i class="check_on"></i>我同意<a href="">《搜材狗注册协议》</a>
+							</p>
+						</li>
+						<li><input type="submit" class="btn btn_able" value="注册"
+							id="registerSubmit"></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--footer start-->
+	#parse("views/common/footer.html")
+	<!--footer end-->
+	<script type="text/javascript" src="../static/js/register-sup.js"></script>
+</body>
+</html>

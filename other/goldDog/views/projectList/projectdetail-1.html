@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>项目详情1</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="../static/css/base.css">
+<link rel="stylesheet" href="../static/css/index.css">
+<link rel="stylesheet" href="../static/css/projectlist.css">
+</head>
+
+<body>
+	<!--header start-->
+	#parse("views/common/header.html")
+	<!--header end-->
+	<input type ="hidden" name = "biddingTime" id = "biddingTime" value ="$!biddingTime">
+	<input type ="hidden" name = "totalPrice" id = "totalPrice" value ="$!totalPrice">
+	<input type ="hidden" name = "materialId" id ="materialId" value="$!projectMaterialRes.materialId">
+	<input type ="hidden" name = "downPayment" id = "downPayment" value ="F">
+	<div class="main project-bidding">
+		<div class="w1200">
+			<div class="bidding-info">
+				<ul class="ulist clearfix mb">
+					<li class="fir material">$!projectMaterialRes.twoClassifyName</li>
+					<li>距离本次竞标结束:
+						<div class="countdown">
+							<span> 7</span>天 <span>23</span>时 <span>59</span>分 <span>59</span>秒
+						</div>
+					</li>
+				</ul>
+				<ul class="ulist clearfix mb">
+					<li class="fir">公司名称: <span>$!userRes.companyName</span>
+					</li>
+					<li class="sec">发布时间: <span>$!date.format('yyyy-MM-dd',$!projectRes.auditTime)</span>
+					</li>
+					<li class="thr" style="color:#333;">项目地点: <span>$!projectRes.provinceName $!projectRes.cityName</span>
+					</li>
+				</ul>
+				<div class="tips">
+					<i></i> <span>温馨提示:竞标单价越低，中标概率越大</span>
+				</div>
+			</div>
+			<div class="bidding-cont">
+				<div class="goods" id="countPrice">
+					#foreach($obj in $projectMaterialDetailList)
+					<ul class="ulist clearfix mb">
+						<li class="fir">规格描述: <span>$!obj.specDescription</span>
+						</li>
+						<li class="sec">物资数量: <span class="count">$!obj.purchaseQuantity</span> $!obj.unit
+						</li>
+						<li class="thr">参考单价: <span class="price">$!obj.purchasePrice</span>元
+						</li>
+						<li>交付时间: <span class="time">$!date.format('yyyy-MM-dd HH:mm:ss',$!obj.leadTime)</span>
+						</li>
+					</ul>
+					#end
+				</div>
+				<div id="tPrice" class="total-price">
+					<label>共计总价:</label>
+					<div class="pt">
+
+						<span class="symbol">￥</span><input type="text" > <span
+							class="hint"></span>
+					</div>
+
+				</div>
+				<div id="payment" class="pay-way clearfix">
+					<label>首付款：</label>
+					<div class="checkbox">
+					#foreach($obj in $sysConfigresList)
+					    #if($obj.configKeys =='F')
+						<div class="item cur" >
+						<input type = "hidden" name = "configKeys" value ="$obj.configKeys">
+							<div>
+								<p>零首付款</p>
+								<p>（无手续费）</p>
+							</div>
+						</div>
+						#else
+						<div class="item" >
+						   <input type = "hidden" name = "configKeys" value ="$obj.configKeys">
+							<p>$obj.configValues %首付款</p>
+							<p>（$obj.configDescription 手续费）</p>
+						</div>
+						#end
+					#end
+					</div>
+					<div class="qes">
+						<a href="">什么是首付款？</a>
+					</div>
+				</div>
+				<div class="bidding-btn">
+					<input id="bid" type="button" value="我要竞标">
+				</div>
+			</div>
+			<div class="bidding-intro">
+				<div class="title">项目介绍</div>
+				<div class="cot">
+				 $!projectRes.projectIntroduction
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer start-->
+	#parse("views/common/footer.html")
+	<script type="text/javascript" src="../static/js/project-bidding.js"></script>
+	<!--footer end-->
+	
+	<script type="text/javascript">
+	 function leftTimer(setTime) {
+    	
+       var leftTime = setTime - (new Date()); //计算剩余的毫秒数
+       var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数 
+          var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时    
+          var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟    
+          var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数 
+               setInterval(function(){leftTimer(setTime)},1000);    
+             var showTime = "<span>" + days + " </span>天<span>" + hours + "</span>时<span>" + minutes + " </span>分<span>" + seconds + "</span>秒";
+             $('.countdown').html(showTime)
+    }
+      leftTimer($("#biddingTime").val())
+	</script>
+</body>
+
+</html>

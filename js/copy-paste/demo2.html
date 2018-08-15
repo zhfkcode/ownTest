@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div>
+        不能使用clipboardData：
+        在IE中可以用window.clipboardData.setData('text','内容')实现。
+        上文提到过，在IE中clipboardData是window的属性。
+        而其他浏览器则是相应的event对象的属性，这实际上是一种安全措施，防止未经授权的访问,为了兼容其他浏览器，所以我们不能通过clipboardData来实现这种操作。
+        具体做法：
+
+
+创建一个隐藏的input框
+
+
+点击的时候，将要复制的内容放进input框中
+
+
+选择文本内容input.select()
+这里只能用input或者textarea才能选择文本。
+
+
+document.execCommand("copy")，执行浏览器的复制命令。
+ function copyText() {
+   var text = document.getElementById("text").innerText; // 获取要复制的内容也可以传进来
+   var input = document.getElementById("input"); // 获取隐藏input的dom
+   input.value = text; // 修改文本框的内容
+   input.select(); // 选中文本
+   document.execCommand("copy"); // 执行浏览器复制命令
+   alert("复制成功");
+ }
+    </div>
+    <script>
+        document.body.oncopy = event=>{
+            event.preventDefault();
+            let textFont,copyFont = window.getSelection(0).toString();
+            textFont = copyFont;
+            console.log(copyFont)
+            if(event.clipboardData){
+                return event.clipboardData.setData('text',textFont)
+            }else {
+                return window.clipboardData.setData('text',textFont)
+            }
+        }
+    </script>
+</body>
+</html>
