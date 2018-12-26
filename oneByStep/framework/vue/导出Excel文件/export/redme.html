@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    
+    <h1>第一步</h1>
+        <p>安装：npm install -S file-saver xlsx（这里其实安装了2个依赖）
+        
+        npm install -D script-loader</p>
+        <p>
+            第二步：将函数export2Excel（）执行
+        </p>
+</body>
+<script>
+    export2Excel() {
+        var that = this;
+        require.ensure([], () => {
+            const { export_json_to_excel } = require('../../excel/Export2Excel'); //这里必须使用绝对路径
+            const tHeader = ['id', 'withNum', 'userId', 'name', 'amount', 'status', 'amountIn', 'amountSuccess', 'createTime']; // 导出的表头名
+            const filterVal = ['id', 'withNum', 'userId', 'name', 'amount', 'status', 'amountIn', 'amountSuccess', 'createTime']; // 导出的表头字段名
+            const list = that.excelData;
+            const data = that.formatJson(filterVal, list);
+            // let time1, time2 = '';
+            // if (this.start !== '') {
+            //     time1 = that.moment(that.start).format('YYYY-MM-DD')
+            // }
+            // if (this.end !== '') {
+            //     time2 = that.moment(that.end).format('YYYY-MM-DD')
+            // }
+            export_json_to_excel(tHeader, data, `[${time1}-${time2}]提现管理excel`);// 导出的表格名称，根据需要自己命名
+        })
+    }
+
+    formatJson(filterVal, jsonData) {
+        return jsonData.map(v => filterVal.map(j => v[j]))
+    }
+</script>
+</html>
