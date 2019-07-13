@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll top</title>
+    <style>
+    .wrap{
+        height: 5000px;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <button id='btn' class="a b">start scroll</button>
+    </div>
+    <script>
+      
+        var btnDom = document.getElementById('btn');
+          console.log(btnDom.className)
+        btnDom.addEventListener('click',function(){
+            scrollTop(window,0,500,1000,function(){alert(123)})
+        })
+    function scrollTop(el,from=0,to,duration=500,endCallback){
+        if(!window.requestAnimationFrame){
+            window.requestAnimationFrame = (window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
+            msRequestAnimationFrame || function (callback){
+                return window.setTimeout(callback,1000/60)
+            })
+        }
+        const diff = Math.abs(from - to);
+        const step = Math.ceil(diff / duration * 50);
+        function scroll(start, end, step){
+            if(start===end){
+                endCallback && endCallback();
+                return ;
+            }
+            let d = (start + step > end)?end:(start+step);
+            if(start>step){
+                d = (start - step < end)?end:(start-step);
+            }
+            if(el ===window){
+                window.scrollTo(d,d)
+            }else{
+                el.scrollTop = d
+            }
+            window.requestAnimationFrame(()=>scroll(d,end,step))
+        }
+    scroll(from, to, step)
+    }
+    </script>
+</body>
+</html>

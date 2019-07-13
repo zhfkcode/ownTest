@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>number rocket</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="count"></div>
+    </div>
+    <script>
+        // (function ($) {
+        //     $.fn.numberRock = function (options) {
+        //         var defaults = {
+        //             lastNumber: 100,
+        //             duration: 2000,
+        //             easing: 'swing' //swing(默认 : 缓冲 : 慢快慢) linear(匀速的)
+        //         };
+        //         var opts = $.extend({}, defaults, options);
+
+        //         $(this).animate({
+        //             num: "dd",
+        //             // width : 300,
+        //             // height : 300,
+        //         }, {
+        //             duration: opts.duration,
+        //             easing: opts.easing,
+        //             complete: function () {
+        //                 console.log("success");
+        //             },
+        //             step: function (a, b) { //可以检测我们定时器的每一次变化
+        //                 //console.log(a);
+        //                 //console.log(b.pos); //运动过程中的比例值(0~1)
+        //                 $(this).html(parseInt(b.pos * opts.lastNumber));
+        //             }
+        //         });
+
+        //     }
+
+        // })(jQuery);
+        // $(function () {
+        //     $(".count").numberRock({
+        //         lastNumber: 666,
+        //         duration: 5000,
+        //         easing: 'swing', //慢快慢
+        //     });
+        // });
+        var defaults = {
+            lastNumber: 1000,
+            duration: 1000,
+            easing: 'swing' //swing(默认 : 缓冲 : 慢快慢) linear(匀速的)
+        };
+        $(".count").animate({
+            num: "dd",
+            // width : 300,
+            // height : 300,
+        }, {
+            duration: 2000,
+            easing: 'swing',
+            complete: function () {
+                console.log("success");
+            },
+            step: function (a, b) { //可以检测我们定时器的每一次变化
+                //console.log(a);
+                //console.log(b.pos); //运动过程中的比例值(0~1)
+                $(this).html(parseInt(b.pos * 1000));
+            }
+        });
+    </script>
+</body>
+
+</html>

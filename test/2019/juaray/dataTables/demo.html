@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="dataTable.css" />
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <table id="table_id_example" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>岗位</th>
+                <th>工资</th>
+                <th>部门</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="dataTable.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#table_id_example').DataTable({
+                // language: {
+                //     url: "zh_CN.txt"
+                // },
+                // "info": true,
+                "paging": true,
+                // "processing": false,
+                "searching": false,
+                //使用对象数组，一定要配置columns，告诉 DataTables 每列对应的属性
+                //data 这里是固定不变的，name，position，salary，office 为你数据里对应的属性
+                columns: [{
+                        data: 'name'
+                    },
+                    {
+                        data: 'position'
+                    },
+                    {
+                        data: 'salary'
+                    },
+                    {
+                        data: 'office'
+                    }
+                ],
+data:[{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'},{name:'nihao',position:'ni',salary:'3000',office:'222'}]
+                //开启服务器模式
+                // serverSide: true,
+                //使用ajax异步请求
+                // ajax: {
+                //     type: 'POST',
+                //     url: 'data.json'
+                // }
+            });
+        })
+/mc/ci/item/trend.json?cateId=30&dateRange=2019-01-21|2019-01-21&dateType=day&device=0&indexCode=uvIndex,payRateIndex,tradeIndex,payByrCntIndex&itemId=573782852825&sellerType=-1
+
+
+https://sycm.taobao.com/mc/rivalShop/analysis/getCoreTrend.json?dateType=recent30&dateRange=2018-12-23%7C2019-01-21&indexCode=&device=0&cateId=30&selfUserId=3000955927&rivalUser1Id=1091756444
+    https://sycm.taobao.com/mc/rivalShop/analysis/getCoreTrend.json?dateType=recent30&dateRange=2018-12-23|2019-01-21&indexCode=&device=0&cateId=30&selfUserId=3000955927&rivalUser1Id=158748311
+
+    /mc/mq/monitor/cate/offline/showTopShops.json?cateId=30&dateRange=2019-01-15|2019-01-21&dateType=recent7&device=0&indexCode=tradeIndex,tradeGrowthRange&order=desc&orderBy=tradeIndex&page=1&pageSize=10&sellerType=-1
+    /mc/mq/monitor/cate/offline/showTopShops.json?cateId=30&dateRange=2019-01-15|2019-01-21&dateType=recent7&device=0&indexCode=tradeIndex&order=desc&orderBy=tradeIndex&page=1&pageSize=10&sellerType=-1
+    /mc/mq/monitor/cate/offline/showTopShops.json?cateId=30&dateRange=2019-01-15|2019-01-21&dateType=recent7&device=0&indexCode=tradeIndex,tradeGrowthRange&order=desc&orderBy=tradeIndex&page=1&pageSize=10&sellerType=-1
+    /mc/mq/monitor/cate/live/showTopShops.json?cateId=30&dateRange=2019-01-22|2019-01-22&dateType=today&device=0&indexCode=tradeIndex&order=desc&orderBy=tradeIndex&page=1&pageSize=10&sellerType=-1
+    </script>
+</body>
+/mc/ci/shop/trend.json?cateId=30&dateRange=2019-01-21|2019-01-21&dateType=day&device=0&indexCode=uvIndex,payRateIndex,tradeIndex,payByrCntIndex&sellerType=-1&userId=305358018
+/mc/ci/item/trend.json?cateId=30&dateRange=2019-01-21|2019-01-21&dateType=day&device=0&indexCode=uvIndex,payRateIndex,tradeIndex,payByrCntIndex&itemId=584063463004&sellerType=-1
+
+/mc/ci/br|and/trend.json?brandId=107380&cateId=30&dateRange=2019-01-21|2019-01-21&dateType=day&device=0&indexCode=uvIndex,payRateIndex,tradeIndex,payByrCntIndex&sellerType=-1
+
+https://sycm.taobao.com/mc/live/ci/shop/monitor/list.json?device=0&sellerType=-1&cateId=30&dateRange=2019-01-23%7C2019-01-23&dateType=today&pageSize=10&page=1&order=desc&orderBy=tradeIndex&indexCode=cateRankId%2CtradeIndex%2CuvIndex&_=1548211886567&token=2da3c4e8a
+https://sycm.taobao.com/mc/live/ci/shop/monitor/listShop.json?dateType=today&dateRange=2019-01-23%7C2019-01-23&orderType=shop&order=desc&orderBy=uvIndex&device=0&cateId=30&sellerType=-1&indexCode=uvIndex%2CtradeIndex%2CcateRankId&type=all&_=1548211921276&token=2da3c4e8a
+
+
+
+https://sycm.taobao.com/mc/live/ci/shop/monitor/list.json?device=0&sellerType=-1&cateId=30&dateRange=2019-01-23%7C2019-01-23&dateType=today&pageSize=10&page=2&order=desc&orderBy=tradeIndex&indexCode=cateRankId%2CtradeIndex%2CuvIndex&_=1548212935299&token=2da3c4e8
+</html>

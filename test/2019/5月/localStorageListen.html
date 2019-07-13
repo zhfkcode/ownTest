@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../../../jquery-3.2.1.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <button id='test'>test</button>
+  <script>
+    $('#test').click(function(){
+      localStorage.setItem('token','132444')
+    })
+     // 监听本地token
+    window.addEventListener("storage", function (e) {
+    alert(e.newValue);
+    },false);
+  </script>
+</body>
+</html>

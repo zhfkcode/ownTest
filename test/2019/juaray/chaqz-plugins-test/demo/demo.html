@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/buttons.dataTables.min.css" />
+
+</head>
+
+<body>
+
+    <table id="table_id_example" class="display" style="width:100%">
+        <!-- <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody> -->
+    </table>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.buttons.min.js"></script>
+    <script src="js/buttons.html5.min.js"></script>
+    <script>
+        var data = [{
+                "name": {
+                    na:'nihoaoo',
+                    url:'https://www.baidu.com/aladdin/tpl/right_toplist1/refresh.png'
+                },
+                "position": "System Architect",
+                "salary": "$3,120",
+                "start_date": "2011/04/25",
+                "office": "Edinburgh",
+                "extn": "5421"
+            },
+            {
+"name": {
+na:'nihoaoo',
+url:'https://www.baidu.com/aladdin/tpl/right_toplist1/refresh.png'
+},
+                "position": "Director",
+                "salary": "$5,300",
+                "start_date": "2011/07/25",
+                "office": "Edinburgh",
+                "extn": "8422"
+            }
+        ];
+        $(function () {
+            $('#table_id_example').DataTable({
+                data: data,
+                columns: [{
+                        data: 'name',
+                        title:'好吃',
+                        render: function (data, type, row, meta) {
+                            //type 的值 dispaly sort filter
+                            //代表，是显示类型的时候判断值的长度是否超过8，如果是则截取
+                            //这里只处理了类型是显示的，过滤和排序返回原始数据
+return '<span title="'+data.na+'">'+data.na+'<img src="'+data.url+'">...</span>';
+                        }
+                    },
+                    {
+                        data: 'position',
+title:'好吃'
+                    },
+                    {
+                        data: 'salary',
+title:'好吃',
+                    },
+                    {
+                        data: 'office',
+title:'好吃',
+                    },
+                    {
+                        data: 'start_date',
+title:'好吃',
+                    },
+                    {
+                        data: 'extn',
+title:'好吃',
+                    }
+                ],
+                searching: false,
+                ordering: false,
+                info: false,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv'
+                ]
+            });
+        })
+    </script>
+</body>
+
+</html>

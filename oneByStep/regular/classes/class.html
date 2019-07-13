@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>operator class</title>
+</head>
+<body>
+    <script>
+        function hasClass(el,cls){
+            if(!el || !cls)return false;
+            if(cls.indexOf(' ')!==-1) throw new Error('不能空格')
+            if(el.classList){
+                return el.classList.contains(cls)
+            }else{
+                return (' '+el.className+' ').indexOf(' '+cls+' ')>-1
+            }
+        }
+        function addClass(el, cls){
+            if(!el)return;
+            let curClass = el.className;
+            const classes = (cls || '').split(' ');
+            for (let i = 0,j=classes.length; i < j; i++) {
+                const clsName = classes[i]
+                if(!clsName)continue;
+                if(el.classList){
+                    el.classList.push(clsName)
+                }else{
+                    if(!hasClass(el,clsName)){
+                        curClass+=' '+clsName
+                    }
+                }
+            }
+            if(!el.classList){
+                el.className = curClass
+            }
+        }
+        function removeClass(el,cls){
+            if(!el || !cls)return;
+            let curClass = ' '+el.className+' ';
+            const classes = (cls || '').split(' ');
+            for(let i = 0,j = classes.length;i<j;i++){
+                const clsName = classes[i];
+                if(!clsName)continue;
+                if(el.classList){
+                    el.className.remove(clsName)
+                }else{
+                    if(hasClass(el, clsName)){
+                        curClass = curClass.replace(' '+ clsName+' ','')
+                    }
+                }
+            }
+            if (!el.classList) {
+            el.className = trim(curClass);
+            }
+        }
+        const trim = function(string) {
+            return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+        };
+    </script>
+</body>
+</html>

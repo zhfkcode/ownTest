@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <style>
+        .chaqz-info-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 10000000;
+
+        }
+
+        .chaqz-info-wrapper .c-cont {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 380px;
+            /* height:100%; */
+            margin-top: -120px;
+            margin-left: -190px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .chaqz-info-wrapper .c-cont .close {
+            float: right;
+            color: #999999;
+            font-size: 30px;
+            line-height: 15px;
+            cursor: pointer;
+        }
+
+        .chaqz-info-wrapper .c-cont .close2 {
+            position: absolute;
+            right: 0;
+            top: -63px;
+            width: 36px;
+            height: 36px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            font-size: 35px;
+            line-height: 30px;
+        }
+
+        .chaqz-info-wrapper.login {
+            padding: 30px;
+        }
+
+        .chaqz-info-wrapper.login .c-cont {
+            width: 300px;
+        }
+
+        .chaqz-info-wrapper.login .login-btn {
+            width: 300px;
+            height: 48px;
+            font-size: 18px;
+        }
+
+        .chaqz-info-wrapper.login input {
+            width: 300px;
+            height: 40px;
+            border: 1px solid #E5E5E5;
+            outline: none;
+        }
+
+        .chaqz-info-wrapper.login .title {
+            margin-bottom: 22px;
+        }
+
+        .chaqz-info-wrapper.login .phone {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .chaqz-info-wrapper.login .pwd {
+            position: relative;
+        }
+
+        .chaqz-info-wrapper.login .router {
+            margin: 31px 0;
+        }
+
+        .chaqz-info-wrapper.login .tips {
+            position: absolute;
+            top: 47px;
+            left: 0;
+            font-size: 12px;
+            color: #F64C3E;
+            margin: 0;
+        }
+
+        .chaqz-info-wrapper.login a {
+            color: #888;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .chaqz-info-wrapper.login a.right {
+            float: right;
+        }
+
+        .orange-default-btn {
+            background: #FFB700;
+            color: #fff;
+            border: 0;
+            outline: none;
+            border-radius: 2px;
+        }
+
+        /* user info  */
+        .chaqz-info-wrapper.user .c-cont {
+            width: 400px;
+            padding: 0;
+        }
+
+        .chaqz-info-wrapper.user .help {
+            float: right;
+            margin-top: 15px;
+            margin-right: 15px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .chaqz-info-wrapper.user .infoList {
+            padding: 30px;
+            padding-top: 0;
+            list-style: none;
+        }
+
+        .chaqz-info-wrapper.user .user-list {
+            padding: 0;
+        }
+
+        .chaqz-info-wrapper.user .user-list li {
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #666;
+            border: 1px solid #E5E5E5;
+            border-bottom: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        .chaqz-info-wrapper.user .user-list .name {
+            margin-left: 16px;
+        }
+
+        .chaqz-info-wrapper.user .user-list .fr {
+            float: right;
+            margin-right: 16px;
+            color: #4B92EC;
+        }
+
+        .chaqz-info-wrapper.user .user-list li:last-of-type {
+            border-bottom: 1px solid #E5E5E5
+        }
+
+        /* pop */
+        .chaqz-info-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 10000000;
+
+        }
+
+        .chaqz-info-wrapper .c-cont {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 380px;
+            /* height:100%; */
+            margin-top: -120px;
+            margin-left: -190px;
+            background: #fff;
+            padding: 20px;
+            padding-bottom: 40px;
+            border-radius: 5px;
+        }
+
+        .chaqz-info-wrapper .c-cont .close {
+            float: right;
+            color: #999999;
+            font-size: 30px;
+            line-height: 15px;
+            cursor: pointer;
+            /* margin-right: 20px; */
+            /* margin-top:20px; */
+        }
+
+        .chaqz-info-wrapper .c-cont .alert {
+            /* padding:25px; */
+            text-align: center;
+        }
+
+        .chaqz-info-wrapper .c-cont h2 {
+            margin: 13px 0 29px;
+            color: #222222;
+            font-size: 20px;
+        }
+
+        .chaqz-info-wrapper .c-cont .tips {
+            margin-bottom: 60px;
+            color: #555555;
+            font-size: 16px;
+            line-height: 22px;
+margin-top: 80px;
+        }
+
+
+        .chaqz-info-wrapper .c-cont .cha-btns .btn {
+            width: 100px;
+            height: 46px;
+            border: 1px solid rgba(229, 229, 229, 1);
+            font-size: 16px;
+            background: #FFA200;
+            color: #fff;
+            border: 0;
+            border-radius: 3px; 
+        }
+.chaqz-info-wrapper .c-cont .cha-btns .mr_30 {
+            margin-right:30px; 
+        }
+
+        /* .chaqz-info-wrapper .c-cont .cha-btns .abtn {
+            display: inline-block;
+            width: 100px;
+            height: 46px;
+            line-height: 46px;
+            font-size: 16px;
+            background: #FFA200;
+            color: #fff;
+            text-align: center;
+            margin-left: 30px;
+        } */
+.table-wrap{
+    width: 100%;
+    margin:42px 4px 30px 4px;
+    min-height: 160px;
+}
+.tips{
+    margin:15px 0;
+    color: #888;
+}
+table{
+    border:0;
+    font-size: 14px;
+}
+thead{
+    background: #F5F5F5;
+    color: #888;
+}
+tbody{
+    color: #555;
+}
+td{
+    border:0;
+    height: 40px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- <div class="chaqz-info-wrapper login"><div class="c-cont"><span class="close" click="hideInfo">×</span><div class="formList"><div class="title"></div><div class="phone"><input type="text" placeholder="请输入手机号码"><p class="tips">请输入手机号码</p></div><div class="pwd"><input type="password" placeholder="请输入登录密码"><p class="tips">请输入登录密码</p></div><div class="router"><a href="http://www.chaquanzhong.com/reg" class="right">免费注册</a><a href="http://www.chaquanzhong.com/findP">忘记密码</a></div><button class="orange-default-btn login-btn">登录</button></div></div></div> -->
+
+
+
+    <div class="chaqz-info-wrapper">
+        <input type="checkbox" checked disabled>5555
+        <div class="c-cont"><span class="close" click="hideInfo">×</span>
+            <div class="alert">
+                <div class="table-wrap"><table><thead><tr><td>序号</td><td>店铺名</td><td>状态</td></tr></thead><tbody><tr><td><input type="checkbox"></td><td>阿萨德旗舰店</td><td>未激活</td></tr><tr><td> <input type="checkbox"></td><td>阿萨德旗舰店</td><td>未激活</td></tr><tr><td><input type="checkbox"></td><td>阿萨德旗舰店</td><td>未激活</td></tr></tbody></table></div><button class="orange-default-btn login-btn">激活</button><p class="foot-tips">如有绑定疑问，请<a href="tencent://message/?uin=3531553166&amp;Site=qq&amp;Menu=yes">联系客服</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="chaqz-info-wrapper user"><div class="c-cont"><span class="close2" click="hideInfo">×</span><div class="help">帮助</div><div class="infoList"><div class="title"></div><ul class="user-list"><li><span class="name">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;户：</span><span>18868121993</span><span class="fr">退出登录</span></li><li><span class="name">会员信息:</span><span>钻石会员</span></li><li><span class="name">到期时间:</span><span>2018-02-28</span><span class="fr">续费</span></li><li><span class="name">联系客服:</span><span>18868121993</span></li><li><span class="name">店铺绑定:</span><span>已绑定</span></li><li><span class="name">推广赚钱:</span><span>拉新可获积分</span></li></ul></div></div></div>
+<img src="http://file.cdn.chaquanzhong.com/wenhao.png" alt="?"><img src="http://file.cdn.chaquanzhong.com/wx_icon.png"
+    alt="logo"> -->
+</body>
+
+</html>
