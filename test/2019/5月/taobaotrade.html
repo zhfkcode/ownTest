@@ -157,12 +157,16 @@
             xfld: 315
         }
         test()
-        wokaonimeide?a:'';
+        // wokaonimeide?a:'';
         function  test(){
             setTimeout(() => {
                 console.log(a)
             }, 3000);
         }
+        var a=[{title:1},{title:2},{title:3},{title:4},{title:5},{title:6},{title:7}];
+        var d = []
+        var c= a.map(function(item){d.push(item.title)})
+        console.log(d)
     </script>
 </body>
 
